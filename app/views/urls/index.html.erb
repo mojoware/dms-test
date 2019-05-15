@@ -1,0 +1,9 @@
+<h1>DMS Urls</h1>
+
+<% @urls.each do |url| %>
+  <div style="float: left; display:inline-block; width: 20%;">
+  <%= link_to "#{request.protocol}#{request.host_with_port}/app/"+url.short_url, "#{request.protocol}#{request.host_with_port}/app/#{url.short_url}" %></div>
+  <div>
+  <%= url.long_url %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<h1>New DMS Email</h1>
+
+<%= form_for @email do |f| %>
+  <div style="float:left; display:inline-block; width: 30%;">
+  Email Address: <%= f.text_field :address, :size=>"50" %><br />
+  </div>
+  <%= f.fields_for :urls do |url_fields| %>
+    <div>
+    URL: <%= url_fields.text_field :long_url, :size=>"50" %><br />
+    </div>
+  <% end %>
+  <br />
+  <%= f.submit "Create New Short Link" %>
+<% end %>
+
+<div style="clear: both;"></div><br />
+
+<%= form_for @url, url: original_link_emails_path do |f| %>
+<%#= form_tag emails_path do |f| %>
+  <div style="width: 30%;">
+  Short Url: <%= f.text_field :short_url, :size=>"50" %><br />
+  </div>
+  <br />
+  <%= submit_tag "Get Email and Original Link" %>
+<% end %>
