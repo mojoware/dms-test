@@ -9,3 +9,5 @@ The bottom form takes the short URL and returns the corresponding email address 
 The urls/ page lists the short URLs and the original URLS. Clicking on the short URL links will redirect you to the original URL.
 
 If the email address or original URL fails validation, descriptive error messages will be returned as JSON with an HTTP status of 422.
+
+If the short URL cannot be found when submitted on the second form, a descriptive error message will be returned as JSON with an HTTP status of 422.
