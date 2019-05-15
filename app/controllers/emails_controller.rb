@@ -20,7 +20,7 @@ class EmailsController < ApplicationController
     short_link = params[:url][:short_url].split('/').last
     @url       = Url.find_by(short_url: short_link)
     if @url
-      @email     = @url.email.address
+      @email = @url.email.address
       render json: {email: @email, original_link: @url.long_url}
     else
       render json: {error: "Could not find short link"}, status: :unprocessable_entity
