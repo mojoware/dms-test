@@ -10,7 +10,6 @@ class EmailsController < ApplicationController
     @email = Email.new email_params
     if @email.save
       short_url = "#{request.protocol}#{request.host_with_port}/app/" + @email.urls.collect{|e| e.short_url}.first
-      #render json: @email.urls.collect{|e| e.short_url}
       render json: {short_url: short_url}
     else
       render json: {error: @email.errors.full_messages}, status: :unprocessable_entity      
